@@ -12,8 +12,8 @@
         <div class="jumbotron">
             <h2 class="display-4" th:text="${totalConfirmed + ' (+'+ totalNewConfirmed + ')'}"></h2>
             <p class="lead">Confirmed cases (New cases)</p>
-            <h2 class="display-4" th:text="${totalDeath + ' (+' + totalNewDeath + ')'}"></h2>
-            <p class="lead">Deaths (New deaths)</p>
+            <h2 style="color: darkred" class="display-4" th:text="${totalDeath + ' (+' + totalNewDeath + ')'}"></h2>
+            <p style="color: darkred" class="lead">Deaths (New deaths)</p>
         </div>
         <div class="container">
             <table class="table" id="confirmedTable">
