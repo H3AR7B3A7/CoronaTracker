@@ -2,20 +2,32 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title>Corona Tracker</title>
 </head>
 <body>
     <h1>Corona Tracker</h1>
-    <table>
+    <table id="confirmedTable">
         <tr>
             <th>State</th>
             <th>Region</th>
-            <th>Total confirmed cases</th>
+            <th>Cases</th>
         </tr>
-        <tr th:each="locationStat : ${locationStats}">
-            <td th:text="${locationStat.state}"></td>
-            <td th:text="${locationStat.region}"></td>
-            <td th:text="${locationStat.latestTotalCases}"></td>
+        <tr th:each="locationConfirmedStat : ${locationConfirmedStats}">
+            <td th:text="${locationConfirmedStat.state}"></td>
+            <td th:text="${locationConfirmedStat.region}"></td>
+            <td th:text="${locationConfirmedStat.latestTotalCases}"></td>
+
+            </td>
+        </tr>
+    </table>
+    <table id="deathTable">
+        <tr>
+            <th>Deaths</th>
+        </tr>
+        <tr th:each="locationDeathStat : ${locationDeathStats}">
+            <td th:text="${locationDeathStat.latestTotalDeath}"></td>
         </tr>
     </table>
 </body>
