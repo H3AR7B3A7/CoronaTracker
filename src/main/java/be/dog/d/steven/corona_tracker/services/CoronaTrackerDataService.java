@@ -23,6 +23,10 @@ public class CoronaTrackerDataService {
 
     private List<LocationStats> allDataList = new ArrayList<>();
 
+    public List<LocationStats> getAllDataList() {
+        return allDataList;
+    }
+
     @PostConstruct
     @Scheduled(cron = "* * 1 * * *")
     public void fetchData() throws IOException, InterruptedException {
