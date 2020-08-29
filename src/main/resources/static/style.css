@@ -1,8 +1,17 @@
+body {
+    text-align: center;
+    white-space: nowrap;
+}
+
+.container {
+
+}
+
 #confirmedTable{
     float: left;
 
 }
 #deathTable{
-    float: left;
-    padding-left: 1rem;
+    display: inline-block;
+    padding-left: 2rem;
 }
