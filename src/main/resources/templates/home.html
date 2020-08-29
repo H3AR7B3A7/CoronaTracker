@@ -15,24 +15,28 @@
         <p class="lead">Deaths</p>
     </div>
     <div class="container">
-        <table id="confirmedTable">
+        <table class="table" id="confirmedTable">
             <tr>
-                <th>State</th>
-                <th>Region</th>
-                <th>Cases</th>
+                <th scope="col">Region</th>
+                <th scope="col">State</th>
+                <th scope="col">Cases</th>
+                <th scope="col">Change</th>
             </tr>
             <tr th:each="locationConfirmedStat : ${locationConfirmedStats}">
-                <td th:text="${locationConfirmedStat.state}"></td>
                 <td th:text="${locationConfirmedStat.region}"></td>
+                <td th:text="${locationConfirmedStat.state}"></td>
                 <td th:text="${locationConfirmedStat.latestTotalCases}"></td>
+                <td th:text="${locationConfirmedStat.deltaFromPreviousCases}"></td>
             </tr>
         </table>
-        <table id="deathTable">
+        <table class="table" id="deathTable">
             <tr>
-                <th>Deaths</th>
+                <th scope="col">Deaths</th>
+                <th scope="col">Change</th>
             </tr>
             <tr th:each="locationDeathStat : ${locationDeathStats}">
                 <td th:text="${locationDeathStat.latestTotalDeath}"></td>
+                <td th:text="${locationDeathStat.deltaFromPreviousDeaths}"></td>
             </tr>
         </table>
     </div>

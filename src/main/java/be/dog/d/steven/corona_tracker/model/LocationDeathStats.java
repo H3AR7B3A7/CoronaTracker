@@ -5,6 +5,7 @@ public class LocationDeathStats {
     private String state;
     private String region;
     private int latestTotalDeath;
+    private int deltaFromPreviousDeaths;
 
     public String getState() {
         return state;
@@ -30,12 +31,21 @@ public class LocationDeathStats {
         this.latestTotalDeath = latestTotalDeath;
     }
 
+    public int getDeltaFromPreviousDeaths() {
+        return deltaFromPreviousDeaths;
+    }
+
+    public void setDeltaFromPreviousDeaths(int deltaFromPreviousDeaths) {
+        this.deltaFromPreviousDeaths = deltaFromPreviousDeaths;
+    }
+
     @Override
     public String toString() {
         return "LocationDeathStats{" +
                 "state='" + state + '\'' +
                 ", region='" + region + '\'' +
                 ", latestTotalDeath=" + latestTotalDeath +
+                ", deltaFromPreviousDeaths=" + deltaFromPreviousDeaths +
                 '}';
     }
 }

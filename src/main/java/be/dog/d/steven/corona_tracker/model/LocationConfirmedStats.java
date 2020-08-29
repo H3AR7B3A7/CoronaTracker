@@ -5,6 +5,7 @@ public class LocationConfirmedStats {
     private String state;
     private String region;
     private int latestTotalCases;
+    private int deltaFromPreviousCases;
 
     public String getState() {
         return state;
@@ -30,12 +31,21 @@ public class LocationConfirmedStats {
         this.latestTotalCases = latestTotalCases;
     }
 
+    public int getDeltaFromPreviousCases() {
+        return deltaFromPreviousCases;
+    }
+
+    public void setDeltaFromPreviousCases(int deltaFromPreviousCases) {
+        this.deltaFromPreviousCases = deltaFromPreviousCases;
+    }
+
     @Override
     public String toString() {
-        return "LocationStats{" +
+        return "LocationConfirmedStats{" +
                 "state='" + state + '\'' +
                 ", region='" + region + '\'' +
                 ", latestTotalCases=" + latestTotalCases +
+                ", deltaFromPreviousCases=" + deltaFromPreviousCases +
                 '}';
     }
 }

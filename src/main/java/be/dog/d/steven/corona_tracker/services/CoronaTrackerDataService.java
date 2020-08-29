@@ -53,7 +53,10 @@ public class CoronaTrackerDataService {
             LocationConfirmedStats locationConfirmedStats = new LocationConfirmedStats();
             locationConfirmedStats.setState(record.get("Province/State"));
             locationConfirmedStats.setRegion(record.get("Country/Region"));
-            locationConfirmedStats.setLatestTotalCases(Integer.parseInt(record.get(record.size()-1)));
+            int latestCases = Integer.parseInt(record.get(record.size()-1));
+            int previousDayCases = Integer.parseInt(record.get(record.size()-2));
+            locationConfirmedStats.setLatestTotalCases(latestCases);
+            locationConfirmedStats.setDeltaFromPreviousCases(latestCases - previousDayCases);
             // System.out.println(locationConfirmedStats);
             newConfirmedDataList.add(locationConfirmedStats);
         }
@@ -72,7 +75,10 @@ public class CoronaTrackerDataService {
             LocationDeathStats locationDeathStats = new LocationDeathStats();
             locationDeathStats.setState(record.get("Province/State"));
             locationDeathStats.setRegion(record.get("Country/Region"));
-            locationDeathStats.setLatestTotalDeath(Integer.parseInt(record.get(record.size()-1)));
+            int latestCases = Integer.parseInt(record.get(record.size()-1));
+            int previousDayCases = Integer.parseInt(record.get(record.size()-2));
+            locationDeathStats.setLatestTotalDeath(latestCases);
+            locationDeathStats.setDeltaFromPreviousDeaths(latestCases - previousDayCases);
             // System.out.println(locationDeathStats);
             newDeathDataList.add(locationDeathStats);
         }
