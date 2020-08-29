@@ -20,16 +20,19 @@ public class HomeController {
     public String home(Model model){
         List<LocationConfirmedStats> allConfirmedStats = coronaTrackerDataService.getAllConfirmedDataList();
         int totalConfirmed = allConfirmedStats.stream().mapToInt(confirmedStat -> confirmedStat.getLatestTotalCases()).sum();
+        int totalNewConfirmed = allConfirmedStats.stream().mapToInt(confirmedStat -> confirmedStat.getDeltaFromPreviousCases()).sum();
 
         model.addAttribute("locationConfirmedStats",allConfirmedStats);
         model.addAttribute("totalConfirmed", totalConfirmed);
+        model.addAttribute("totalNewConfirmed", totalNewConfirmed);
 
         List<LocationDeathStats> allDeathStats = coronaTrackerDataService.getAllDeathDataList();
         int totalDeath = allDeathStats.stream().mapToInt(deathStat -> deathStat.getLatestTotalDeath()).sum();
+        int totalNewDeath = allDeathStats.stream().mapToInt(deathStat -> deathStat.getDeltaFromPreviousDeaths()).sum();
 
         model.addAttribute("locationDeathStats",allDeathStats);
         model.addAttribute("totalDeath", totalDeath);
-
+        model.addAttribute("totalNewDeath", totalNewDeath);
 
         return "home";
     }

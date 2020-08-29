@@ -10,10 +10,10 @@
     <div class="pageContainer">
         <h1>Corona Tracker</h1>
         <div class="jumbotron">
-            <h2 class="display-4" th:text="${totalConfirmed}"></h2>
-            <p class="lead">Confirmed cases</p>
-            <h2 class="display-4" th:text="${totalDeath}"></h2>
-            <p class="lead">Deaths</p>
+            <h2 class="display-4" th:text="${totalConfirmed + ' (+'+ totalNewConfirmed + ')'}"></h2>
+            <p class="lead">Confirmed cases (New cases)</p>
+            <h2 class="display-4" th:text="${totalDeath + ' (+' + totalNewDeath + ')'}"></h2>
+            <p class="lead">Deaths (New deaths)</p>
         </div>
         <div class="container">
             <table class="table" id="confirmedTable">
