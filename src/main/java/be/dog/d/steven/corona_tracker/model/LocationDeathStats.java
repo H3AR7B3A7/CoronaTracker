@@ -1,41 +1,41 @@
 package be.dog.d.steven.corona_tracker.model;
 
-public class LocationStats {
+public class LocationDeathStats {
 
     private String state;
     private String region;
-    private int latestTotalCases;
+    private int latestTotalDeath;
 
     public String getState() {
         return state;
-    }
-
-    public String getRegion() {
-        return region;
-    }
-
-    public int getLatestTotalCases() {
-        return latestTotalCases;
     }
 
     public void setState(String state) {
         this.state = state;
     }
 
+    public String getRegion() {
+        return region;
+    }
+
     public void setRegion(String region) {
         this.region = region;
     }
 
-    public void setLatestTotalCases(int latestTotalCases) {
-        this.latestTotalCases = latestTotalCases;
+    public int getLatestTotalDeath() {
+        return latestTotalDeath;
+    }
+
+    public void setLatestTotalDeath(int latestTotalDeath) {
+        this.latestTotalDeath = latestTotalDeath;
     }
 
     @Override
     public String toString() {
-        return "LocationStats{" +
+        return "LocationDeathStats{" +
                 "state='" + state + '\'' +
                 ", region='" + region + '\'' +
-                ", latestTotalCases=" + latestTotalCases +
+                ", latestTotalDeath=" + latestTotalDeath +
                 '}';
     }
 }
