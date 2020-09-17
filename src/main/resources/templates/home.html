@@ -7,41 +7,35 @@
     <title>Corona Tracker</title>
 </head>
 <body>
-    <div class="pageContainer">
-        <h1>Corona Tracker</h1>
-        <p>Globally tracking COVID-19, using data from Johns Hopkins University.</p>
-        <div class="jumbotron">
-            <h2 class="display-4" th:text="${totalConfirmed + ' (+'+ totalNewConfirmed + ')'}"></h2>
-            <p class="lead">Confirmed cases (New cases)</p>
-            <h2 style="color: darkred" class="display-4" th:text="${totalDeath + ' (+' + totalNewDeath + ')'}"></h2>
-            <p style="color: darkred" class="lead">Deaths (New deaths)</p>
-        </div>
-        <div class="container">
-            <table class="table" id="confirmedTable">
-                <tr>
-                    <th scope="col">Region</th>
-                    <th scope="col">State</th>
-                    <th scope="col">Cases</th>
-                    <th scope="col">Change</th>
-                </tr>
-                <tr th:each="locationConfirmedStat : ${locationConfirmedStats}">
-                    <td th:text="${locationConfirmedStat.region}"></td>
-                    <td th:text="${locationConfirmedStat.state}"></td>
-                    <td th:text="${locationConfirmedStat.latestTotalCases}"></td>
-                    <td th:text="${'+' + locationConfirmedStat.deltaFromPreviousCases}"></td>
-                </tr>
-            </table>
-            <table class="table" id="deathTable">
-                <tr>
-                    <th scope="col">Deaths</th>
-                    <th scope="col">Change</th>
-                </tr>
-                <tr th:each="locationDeathStat : ${locationDeathStats}">
-                    <td th:text="${locationDeathStat.latestTotalDeath}"></td>
-                    <td th:text="${'+' + locationDeathStat.deltaFromPreviousDeaths}"></td>
-                </tr>
-            </table>
-        </div>
+<div class="pageContainer">
+    <h1>Corona Tracker</h1>
+    <p>Globally tracking COVID-19, using data from Johns Hopkins University.</p>
+    <div class="jumbotron">
+        <h2 class="display-4" th:text="${totalConfirmed + ' (+'+ totalNewConfirmed + ')'}"></h2>
+        <p class="lead">Confirmed cases (New cases)</p>
+        <h2 style="color: darkred" class="display-4" th:text="${totalDeath + ' (+' + totalNewDeath + ')'}"></h2>
+        <p style="color: darkred" class="lead">Deaths (New deaths)</p>
     </div>
+    <div class="container">
+        <table class="table" id="confirmedTable">
+            <tr>
+                <th scope="col">Region</th>
+                <th scope="col">State</th>
+                <th scope="col">Cases</th>
+                <th scope="col">Change</th>
+                <th scope="col">Deaths</th>
+                <th scope="col">Change</th>
+            </tr>
+            <tr th:each="locationConfirmedStat : ${locationConfirmedStats}">
+                <td th:text="${locationConfirmedStat.region}"></td>
+                <td th:text="${locationConfirmedStat.state}"></td>
+                <td th:text="${locationConfirmedStat.latestTotalCases}"></td>
+                <td th:text="${'+' + locationConfirmedStat.deltaFromPreviousCases}"></td>
+                <td th:text="${locationConfirmedStat.latestTotalDeath}"></td>
+                <td th:text="${'+' + locationConfirmedStat.deltaFromPreviousDeaths}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
 </body>
 </html>
