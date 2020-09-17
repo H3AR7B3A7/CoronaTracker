@@ -14,18 +14,4 @@ h1 {
     padding: 1rem;
 }
 
-.container {
-    padding: 0;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    column-width: 0;
-}
 
-#confirmedTable {
-    float: left;
-}
-#deathTable {
-    display: inline-block;
-    padding-left: 2rem;
-}

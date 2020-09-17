@@ -2,6 +2,7 @@ package be.dog.d.steven.corona_tracker.services;
 
 import be.dog.d.steven.corona_tracker.model.LocationConfirmedStats;
 import be.dog.d.steven.corona_tracker.model.LocationDeathStats;
+import be.dog.d.steven.corona_tracker.model.LocationStats;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -25,6 +26,7 @@ public class CoronaTrackerDataService {
 
     private List<LocationConfirmedStats> allConfirmedDataList = new ArrayList<>();
     private List<LocationDeathStats> allDeathDataList = new ArrayList<>();
+    private List<LocationStats> allStatsDataList = new ArrayList<>();
 
     public List<LocationConfirmedStats> getAllConfirmedDataList() {
         return allConfirmedDataList;
@@ -33,6 +35,8 @@ public class CoronaTrackerDataService {
     public List<LocationDeathStats> getAllDeathDataList() {
         return allDeathDataList;
     }
+
+    public List<LocationStats> getAllStatsDataList() { return allStatsDataList; }
 
     @PostConstruct
     @Scheduled(cron = "* * 1 * * *")
@@ -83,5 +87,21 @@ public class CoronaTrackerDataService {
             newDeathDataList.add(locationDeathStats);
         }
         this.allDeathDataList = newDeathDataList;
+
+
+        List<LocationStats> newStatsList = new ArrayList<>();
+        for (int x = 0; x < newDeathDataList.size(); x++) {
+            LocationStats temp = new LocationStats();
+            temp.setState(newConfirmedDataList.get(x).getState());
+            temp.setRegion(newConfirmedDataList.get(x).getRegion());
+            temp.setDeltaFromPreviousCases(newConfirmedDataList.get(x).getDeltaFromPreviousCases());
+            temp.setDeltaFromPreviousDeaths(newDeathDataList.get(x).getDeltaFromPreviousDeaths());
+            temp.setLatestTotalCases(newConfirmedDataList.get(x).getLatestTotalCases());
+            temp.setLatestTotalDeath(newDeathDataList.get(x).getLatestTotalDeath());
+            System.out.println(temp);
+            newStatsList.add(temp);
+        }
+        this.allStatsDataList = newStatsList;
+
     }
 }
