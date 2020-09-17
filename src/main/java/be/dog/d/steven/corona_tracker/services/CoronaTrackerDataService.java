@@ -77,8 +77,8 @@ public class CoronaTrackerDataService {
         Iterable<CSVRecord> deathRecords = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(csvBodyReader);
         for (CSVRecord record : deathRecords) {
             LocationDeathStats locationDeathStats = new LocationDeathStats();
-            locationDeathStats.setState(record.get("Province/State"));
-            locationDeathStats.setRegion(record.get("Country/Region"));
+//            locationDeathStats.setState(record.get("Province/State"));
+//            locationDeathStats.setRegion(record.get("Country/Region"));
             int latestCases = Integer.parseInt(record.get(record.size()-1));
             int previousDayCases = Integer.parseInt(record.get(record.size()-2));
             locationDeathStats.setLatestTotalDeath(latestCases);
@@ -98,7 +98,7 @@ public class CoronaTrackerDataService {
             temp.setDeltaFromPreviousDeaths(newDeathDataList.get(x).getDeltaFromPreviousDeaths());
             temp.setLatestTotalCases(newConfirmedDataList.get(x).getLatestTotalCases());
             temp.setLatestTotalDeath(newDeathDataList.get(x).getLatestTotalDeath());
-            System.out.println(temp);
+            // System.out.println(temp);
             newStatsList.add(temp);
         }
         this.allStatsDataList = newStatsList;
